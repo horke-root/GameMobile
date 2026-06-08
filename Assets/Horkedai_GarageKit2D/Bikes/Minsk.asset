@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17302fb2e16450c4abd1aea7d72d98d6, type: 3}
+  m_Name: Minsk
+  m_EditorClassIdentifier: Assembly-CSharp::BikeSO
+  bikeName: Minsk
+  bikePrefabPath: Minsk
+  bikeStats:
+  - slotId: engine
+    power: 11
+  - slotId: exhaust
+    power: 0
+  - slotId: frame
+    power: 0
+  - slotId: wheelR
+    power: 0
+  - slotId: wheelF
+    power: 0
+  wheelRadius: 0.345
+  defaultBrakePower: 400
+  parts:
+  - slotId: frame
+    tItem: {fileID: 11400000, guid: 8174ea7a8b67c6fd3bb0db655c0a5f19, type: 2}
+  - slotId: lights
+    tItem: {fileID: 11400000, guid: 8e86e2c745927532d85452d725ac31d2, type: 2}
+  - slotId: engine
+    tItem: {fileID: 11400000, guid: dc2415e354558deff8cd012c8f720315, type: 2}
+  - slotId: exhaust
+    tItem: {fileID: 11400000, guid: 14beed5e77035630aa3808ee473fdd35, type: 2}
+  - slotId: RWheel
+    tItem: {fileID: 11400000, guid: 5b770f3f16c3f8ac782a7f9b8a64e9fa, type: 2}
+  - slotId: LWheel
+    tItem: {fileID: 11400000, guid: 2cf951ecbb1d42364be4f63ab2499973, type: 2}
+  - slotId: seat
+    tItem: {fileID: 11400000, guid: 4e58f6a990b907a288f5b7dcea65e423, type: 2}
+  - slotId: fuelTank
+    tItem: {fileID: 11400000, guid: c557a9c652f094e3b83810dd9c66e375, type: 2}
+  - slotId: fairings
+    tItem: {fileID: 11400000, guid: 0f0d88b1e974f63648e06ebe9eb3cc52, type: 2}
+  - slotId: secure
+    tItem: {fileID: 11400000, guid: 2b9e62d7c8ad21a0281b8f28a70cda84, type: 2}
+  - slotId: baggage
+    tItem: {fileID: 11400000, guid: 350f54c2d993959bdafa93ae7ac078e8, type: 2}
+  - slotId: carburetor
+    tItem: {fileID: 11400000, guid: 6d892bede58217452a7d1d721c0a303b, type: 2}

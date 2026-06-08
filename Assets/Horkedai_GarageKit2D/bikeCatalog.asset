@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5278d50df6eabbe4ea00f8f0a5e56e12, type: 3}
+  m_Name: bikeCatalog
+  m_EditorClassIdentifier: Assembly-CSharp::BikeCatalogSO
+  bikesSettings:
+  - bikePrefabName: Delta
+    cost: 2500
+    description: "\u041C\u043E\u043F\u0435\u0434 DELTA 50 \u0441\u043C\xB3"
+    image: {fileID: -6771743331266087842, guid: d94c2e34fd4364b4eb9bf3eff62fdd11, type: 3}
+    type: 0
+    rewardMultipier: 1.1
+    data: {fileID: 11400000, guid: c4397ecabd38ac740ae007a55502f1a4, type: 2}
+    bikeClass: 3
+  - bikePrefabName: Alpha RX
+    cost: 4500
+    description: "\u041C\u043E\u043F\u0435\u0434 Alpha RX 50 \u0441\u043C\xB3"
+    image: {fileID: -6718452985174818214, guid: 20a8c860dcf4ddc47a2e5f9c69caf384, type: 3}
+    type: 0
+    rewardMultipier: 1.33
+    data: {fileID: 11400000, guid: 89a35fd18bc93e24fa27b4c2704a42e9, type: 2}
+    bikeClass: 3
+  - bikePrefabName: Alpha
+    cost: 3000
+    description: "\u041C\u043E\u043F\u0435\u0434 Alpha 50 \u0441\u043C\xB3"
+    image: {fileID: -1718444205460512145, guid: beb30982e1fde7433a8bdb1f631af88a, type: 3}
+    type: 0
+    rewardMultipier: 1.33
+    data: {fileID: 11400000, guid: 98f4b32120e9a6a47ba691fbff93e82f, type: 2}
+    bikeClass: 3
+  - bikePrefabName: Minsk
+    cost: 9500
+    description: "\u041C\u0438\u043D\u0441\u043A 125 \u0441\u043C\xB3"
+    image: {fileID: 6038130486965831388, guid: bf761f979c95f20ea85b1933d1f2107e, type: 3}
+    type: 3
+    rewardMultipier: 2.5
+    data: {fileID: 11400000, guid: 082cc2a5a174d7b2f8e50439a86e1a15, type: 2}
+    bikeClass: 2
+  - bikePrefabName: KBME
+    cost: 22000
+    description: "KBM Enduro 690 \u0441\u043C\xB3"
+    image: {fileID: -8796429590660142233, guid: 4b0878f44b111f3e8a4d5592403d99b8, type: 3}
+    type: 1
+    rewardMultipier: 5.1
+    data: {fileID: 11400000, guid: 7c8ac1d02ff35f8c3b2bdf85614f7c9f, type: 2}
+    bikeClass: 1
+  configs:
+  - Type: 0
+    StuntMultiplier: 1.35
+    RaceMultiplier: 0.85
+    EnduroMultiplier: 0.95
+  - Type: 1
+    StuntMultiplier: 1.2
+    RaceMultiplier: 1.05
+    EnduroMultiplier: 1.5
+  - Type: 3
+    StuntMultiplier: 1
+    RaceMultiplier: 1
+    EnduroMultiplier: 1
+  - Type: 4
+    StuntMultiplier: 1.1
+    RaceMultiplier: 1.6
+    EnduroMultiplier: 1.1
+  - Type: 5
+    StuntMultiplier: 0.9
+    RaceMultiplier: 0.9
+    EnduroMultiplier: 1.05
+  - Type: 6
+    StuntMultiplier: 0.95
+    RaceMultiplier: 0.8
+    EnduroMultiplier: 0.85
+  slotDurabilityMultipiers:
+  - slotId: frame
+    durabilityMultipier: 0.4
+  - slotId: exhaust
+    durabilityMultipier: 0.8
+  - slotId: seat
+    durabilityMultipier: 0.2
+  - slotId: lights
+    durabilityMultipier: 0.7
+  - slotId: RWheel
+    durabilityMultipier: 0.5
+  - slotId: LWheel
+    durabilityMultipier: 0.5
+  - slotId: baggage
+    durabilityMultipier: 0.7
+  - slotId: secure
+    durabilityMultipier: 0.8
+  - slotId: fuelTank
+    durabilityMultipier: 0.4
+  - slotId: fuelTank
+    durabilityMultipier: 0.4

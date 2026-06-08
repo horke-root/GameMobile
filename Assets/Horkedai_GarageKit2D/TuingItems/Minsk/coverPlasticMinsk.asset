@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5989b83374f6e54e8591cd7c79a2a5d, type: 3}
+  m_Name: coverPlasticMinsk
+  m_EditorClassIdentifier: Assembly-CSharp::TuningItemSO
+  itemId: coverPlasticMinsk
+  displayName: Cover Plastic Minsk
+  description: 
+  cost: 1000
+  mass: 1
+  paintable: 1
+  color: {r: 0.81960785, g: 0.17254902, b: 0.17254902, a: 1}
+  powerStatsLeveling: []
+  specs:
+    stuntPoints: 0
+    racePoints: 0
+  statsSlot: 
+  slotId: fairing
+  icon: {fileID: -4651601081228699391, guid: dd10f6562d64badaf8ee35e712e1942d, type: 3}
+  itemSprite: {fileID: -4651601081228699391, guid: dd10f6562d64badaf8ee35e712e1942d, type: 3}
+  bikeGroup:
+  - Alpha
+  - Minsk
+  engine: {fileID: 0}

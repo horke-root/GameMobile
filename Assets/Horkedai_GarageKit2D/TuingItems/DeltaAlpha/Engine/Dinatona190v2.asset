@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5989b83374f6e54e8591cd7c79a2a5d, type: 3}
+  m_Name: Dinatona190v2
+  m_EditorClassIdentifier: Assembly-CSharp::TuningItemSO
+  itemId: dinatona190v2
+  displayName: Dinatona 190 2v
+  description: Dinatona 190 v2 FDX
+  cost: 7000
+  mass: 29
+  paintable: 0
+  color: {r: 1, g: 1, b: 1, a: 1}
+  powerStatsLeveling:
+  - level: 1
+    power: 4.5
+  specs:
+    stuntPoints: 2
+    racePoints: 0
+  statsSlot: 
+  slotId: engine
+  icon: {fileID: -7502871128152770904, guid: 33a4b7f5abf014839b9ce8b87ecc40c6, type: 3}
+  itemSprite: {fileID: -7502871128152770904, guid: 33a4b7f5abf014839b9ce8b87ecc40c6, type: 3}
+  bikeGroup:
+  - Delta
+  - Alpha
+  engine: {fileID: 11400000, guid: d920867778e1fb0cea6f40b3b8044f32, type: 2}

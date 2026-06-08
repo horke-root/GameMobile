@@ -1,26 +1,11 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class SettingManager : MonoBehaviour
 {
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public static SettingManager Instance;
 
-    // Update is called once per frame
-    void Update()
+    void Awake()
     {
-        
-    }
-
-    public void ResetSavings()
-    {
-        PlayerPrefs.DeleteAll();
-        /*new OfflineSaveSystem().DeleteSave();
-        new OfflineSaveSystem("bikesdata.json").DeleteSave();
-        */SceneManager.LoadScene(0);
+        Instance = this;
     }
 }

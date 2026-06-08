@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d3678b6772706bdf803ba91d3284497, type: 3}
+  m_Name: LC4
+  m_EditorClassIdentifier: Assembly-CSharp::EngineSO
+  engineId: LC4_690
+  maxHP: 74
+  powerCurve:
+    points:
+    - t: 0
+      v: 0
+    - t: 0.16
+      v: 0.25
+    - t: 0.33
+      v: 0.55
+    - t: 0.5
+      v: 0.75
+    - t: 0.75
+      v: 1
+    - t: 0.88
+      v: 0.95
+    - t: 1
+      v: 0.7
+  maxRPM: 9000
+  gearRatios:
+  - 0
+  - 2.46
+  - 1.73
+  - 1.35
+  - 1.13
+  - 0.96
+  - 0.85
+  primaryDriveRatio: 2.11
+  frontSprocket: 15
+  rearSprocket: 45
+  heatMultiplier: 1.2

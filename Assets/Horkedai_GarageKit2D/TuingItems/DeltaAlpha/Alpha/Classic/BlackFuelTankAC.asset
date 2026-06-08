@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5989b83374f6e54e8591cd7c79a2a5d, type: 3}
+  m_Name: BlackFuelTankAC
+  m_EditorClassIdentifier: Assembly-CSharp::TuningItemSO
+  itemId: fuelTankACBlack
+  displayName: Fuel Tank Alpha
+  description: 
+  cost: 600
+  mass: 7
+  paintable: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  powerStatsLeveling: []
+  specs:
+    stuntPoints: 0
+    racePoints: 0
+  statsSlot: 
+  slotId: fuelTank
+  icon: {fileID: 9050376397724549973, guid: d2f94cf1fb80306498bfc9dd2ab50377, type: 3}
+  itemSprite: {fileID: 9050376397724549973, guid: d2f94cf1fb80306498bfc9dd2ab50377, type: 3}
+  bikeGroup:
+  - Alpha
+  - Minsk
+  engine: {fileID: 0}

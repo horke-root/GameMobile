@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17302fb2e16450c4abd1aea7d72d98d6, type: 3}
+  m_Name: Alpha Classic
+  m_EditorClassIdentifier: Assembly-CSharp::BikeSO
+  bikeName: Alpha
+  bikePrefabPath: Alpha
+  bikeStats:
+  - slotId: engine
+    power: 3.5
+  - slotId: exhaust
+    power: 0.2
+  - slotId: frame
+    power: 0.6
+  - slotId: wheelR
+    power: 0.1
+  - slotId: wheelF
+    power: 0.1
+  wheelRadius: 0.28
+  defaultBrakePower: 350
+  parts:
+  - slotId: frame
+    tItem: {fileID: 11400000, guid: 8376a650c978cce4cb6ca5a30a861846, type: 2}
+  - slotId: lights
+    tItem: {fileID: 11400000, guid: 6af547bede6b1f84999809cd143af99f, type: 2}
+  - slotId: engine
+    tItem: {fileID: 11400000, guid: f7910c3ab6ff08a4e84ebd785c781f07, type: 2}
+  - slotId: exhaust
+    tItem: {fileID: 11400000, guid: f9cc7017143c6e9429f11d116231aa69, type: 2}
+  - slotId: RWheel
+    tItem: {fileID: 11400000, guid: 56e61d851b94cc24cb4d86f3bcf7f677, type: 2}
+  - slotId: LWheel
+    tItem: {fileID: 11400000, guid: a3a3492de268f7c408c359b67289cb1a, type: 2}
+  - slotId: seat
+    tItem: {fileID: 11400000, guid: 79dd1e672765e16488a2d6dff2818459, type: 2}
+  - slotId: fuelTank
+    tItem: {fileID: 11400000, guid: 02bd8a503bc5ede458c5b09d3435d994, type: 2}
+  - slotId: fairings
+    tItem: {fileID: 11400000, guid: 6956250931df4fc4793115bcabf6b4df, type: 2}
+  - slotId: secure
+    tItem: {fileID: 11400000, guid: 7cb911fe790c1854bb33c5b1ada3fb32, type: 2}
+  - slotId: baggage
+    tItem: {fileID: 11400000, guid: 5385a94469b104d4e89ac4fe7b1a5d1a, type: 2}
+  - slotId: carburetor
+    tItem: {fileID: 11400000, guid: c9ca4b41c3899e562a8f9fbec2eef875, type: 2}

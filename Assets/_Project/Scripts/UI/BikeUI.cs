@@ -1,56 +1,68 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
+using TMPro;
 
-// Подключаем интерфейсы для удержания
-public class HoldButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+public class BikeUI : MonoBehaviour
 {
-    public MotorcycleEngine bike;
-    public bool isThrottleButton = false; // газ
-    public bool isBrakeButton = false;    // тормоз
-    public bool isTiltForward = false;
-    public bool isTiltBack = false;
+    [Header("Связь с мотоциклом")]
+    public BikeController bike;
 
-    public Text speedText;
-    public Text gearText;
+    [Header("Элементы UI (Текст на Canvas)")]
+    public TextMeshProUGUI speedText;
+    public TextMeshProUGUI rpmText;
+    public TextMeshProUGUI gearText;
 
-    private bool isPressed = false;
-
-    void Update()
+    private void OnEnable()
     {
-        if (isPressed)
+        EventManager.OnPlayerSpawned += OnPlayerSpawned;
+        if (EventManager.ActivePlayer != null)
         {
-            if (isThrottleButton)
-                bike.SetThrottle(1f);
-            else if (isBrakeButton)
-                bike.SetThrottle(0f); // или отдельный тормоз
-            else if (isTiltForward)
-                bike.SetTilt(-1f);
-            else if (isTiltBack)
-                bike.SetTilt(1f);
-        }
-        else
-        {
-            // когда не нажата кнопка — сбрасываем наклон
-            if (isTiltForward || isTiltBack)
-                bike.SetTilt(0f);
+            OnPlayerSpawned(EventManager.ActivePlayer);
         }
     }
 
-    public void OnPointerDown(PointerEventData eventData)
+    private void OnDisable()
     {
-        isPressed = true;
+        EventManager.OnPlayerSpawned -= OnPlayerSpawned;
     }
 
-    public void OnPointerUp(PointerEventData eventData)
+    void OnPlayerSpawned(Transform bike)
     {
-        isPressed = false;
+        this.bike = bike.GetComponent<BikeController>();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        // Обновляем скорость и передачу
-        speedText.text = $"Speed: {(bike.rb.linearVelocity.magnitude * 3.6f):F0} km/h";
-        gearText.text = $"Gear: {bike.currentGear + 1}";
+        if (bike == null) return;
+
+        UpdateDashboard();
+    }
+
+    private void UpdateDashboard()
+    {
+        if (speedText != null)
+        {
+            int speed = Mathf.RoundToInt(bike.currentSpeedKmh);
+            speedText.text = $"{Mathf.Abs(speed)} км/ч"; 
+        }
+
+        if (rpmText != null)
+        {
+            int rpm = Mathf.RoundToInt(bike.currentEngineRPM);
+            rpmText.text = $"{rpm} об/мин";
+        }
+
+        if (gearText != null)
+        {
+            if (bike.currentGear == 0)
+            {
+                gearText.text = "N";
+                gearText.color = Color.green;
+            }
+            else
+            {
+                gearText.text = (bike.currentGear).ToString();
+                gearText.color = Color.white;
+            }
+        }
     }
 }

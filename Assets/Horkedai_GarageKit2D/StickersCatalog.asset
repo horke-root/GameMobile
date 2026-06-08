@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdd212acc60372427a137c6927b48d93, type: 3}
+  m_Name: StickersCatalog
+  m_EditorClassIdentifier: Assembly-CSharp::StickersCatalog
+  stickers:
+  - stickerId: gameIcon
+    stickerImage: {fileID: 21300000, guid: 68028038de9c069289a6bd1633c67e52, type: 3}
+    scale: {x: 0.02, y: 0.02, z: 0.02}
+  - stickerId: engineIcon
+    stickerImage: {fileID: 21300000, guid: 2afa908c3266274b28439e3027ee3ef1, type: 3}
+    scale: {x: 0.02, y: 0.02, z: 0.02}
+  - stickerId: engineIcon
+    stickerImage: {fileID: 21300000, guid: 2afa908c3266274b28439e3027ee3ef1, type: 3}
+    scale: {x: 0.02, y: 0.02, z: 0.02}
+  - stickerId: strituhaWhite
+    stickerImage: {fileID: 21300000, guid: 7d3545061bbb73f299d3c51f40f3a668, type: 3}
+    scale: {x: 0.02, y: 0.02, z: 0.02}
+  - stickerId: ak47White
+    stickerImage: {fileID: 21300000, guid: a5a9fc265fdc1b15780c6c70378ec2fb, type: 3}
+    scale: {x: 0.02, y: 0.02, z: 0.02}
+  - stickerId: selaDalaWhite
+    stickerImage: {fileID: 21300000, guid: 34096f0b22ab777eb9c7b9e58505b3f6, type: 3}
+    scale: {x: 0.02, y: 0.02, z: 0.02}
+  - stickerId: umenyaestlubimayaW
+    stickerImage: {fileID: 21300000, guid: 243cbdb459242c5489f4d23d66682a52, type: 3}
+    scale: {x: 0.02, y: 0.02, z: 0.02}
+  - stickerId: suyeta
+    stickerImage: {fileID: 21300000, guid: 91b7c3c21e0a7c94bbe998856e035685, type: 3}
+    scale: {x: 0.02, y: 0.02, z: 0.02}
+  - stickerId: fuckYouWhite
+    stickerImage: {fileID: 21300000, guid: 2077880d842c98e1980d40fcf74b103c, type: 3}
+    scale: {x: 0.02, y: 0.02, z: 0.02}
+  - stickerId: netWhite
+    stickerImage: {fileID: 21300000, guid: 04501373b38be0bbd95a07452a46c2f6, type: 3}
+    scale: {x: 0.02, y: 0.02, z: 0.02}
+  - stickerId: ctrituhaBlack
+    stickerImage: {fileID: 21300000, guid: 471ab4b6590a7b13c9b7b44bd1447410, type: 3}
+    scale: {x: 0.02, y: 0.02, z: 0.02}
+  - stickerId: fuckYouBlack
+    stickerImage: {fileID: 21300000, guid: 1650aac84c735d4b0be13bcca9141676, type: 3}
+    scale: {x: 0.02, y: 0.02, z: 0.02}

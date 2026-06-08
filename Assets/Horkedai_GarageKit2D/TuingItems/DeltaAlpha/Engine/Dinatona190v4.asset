@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5989b83374f6e54e8591cd7c79a2a5d, type: 3}
+  m_Name: Dinatona190v4
+  m_EditorClassIdentifier: Assembly-CSharp::TuningItemSO
+  itemId: dinatona190v4
+  displayName: Dinatona 190 4v
+  description: Anima 190 v4
+  cost: 9500
+  mass: 31
+  paintable: 0
+  color: {r: 1, g: 1, b: 1, a: 1}
+  powerStatsLeveling:
+  - level: 1
+    power: 5.1
+  specs:
+    stuntPoints: 3
+    racePoints: 0
+  statsSlot: 
+  slotId: engine
+  icon: {fileID: 6703156670006149101, guid: 5232ea21dd1ffbaf8a4388b632ad2908, type: 3}
+  itemSprite: {fileID: 6703156670006149101, guid: 5232ea21dd1ffbaf8a4388b632ad2908, type: 3}
+  bikeGroup:
+  - Delta
+  - Alpha
+  engine: {fileID: 11400000, guid: bcfd8d593cb7a5d53a78822a21e9a7bd, type: 2}

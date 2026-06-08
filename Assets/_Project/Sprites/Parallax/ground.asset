@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Angles:
   - m_Start: -180
-    m_End: 177
+    m_End: 178
     m_Order: 0
-    m_Sprites: []
+    m_Sprites:
+    - {fileID: -8999449891756601740, guid: 67b4f154024a71848839a7b3640f0c18, type: 3}
   m_FillTexture: {fileID: 2800000, guid: 2d7924c2e6322ffe9a553db383905b46, type: 3}
   m_CornerSprites:
   - m_CornerType: 0
@@ -43,5 +44,5 @@ MonoBehaviour:
   - m_CornerType: 7
     m_Sprites:
     - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
-  m_FillOffset: 0.2
+  m_FillOffset: 0.01
   m_UseSpriteBorders: 0

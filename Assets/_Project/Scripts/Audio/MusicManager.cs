@@ -12,10 +12,10 @@ public class MusicManager : MonoBehaviour
     private bool isStopped = false;
     [Header("Settings")]
     [Tooltip("Path to music folder in Resources folder")]
-    public string resourcesPath = "Music"; 
+    public string resourcesPath = "Music";
     public bool playOnStart = true;
     public bool shuffle = true;
-    
+
     [Range(0f, 1f)]
     public float volume = 0.5f;
 
@@ -40,9 +40,9 @@ public class MusicManager : MonoBehaviour
         {
             audioSource = gameObject.AddComponent<AudioSource>();
         }
-        
+
         audioSource.volume = volume;
-        audioSource.loop = false; 
+        audioSource.loop = false;
 
         LoadSongs();
 
@@ -70,7 +70,7 @@ public class MusicManager : MonoBehaviour
     {
         if (audioSource != null && !audioSource.isPlaying && songs.Count > 0 && !isStopped)
         {
-            if (audioSource.clip != null && audioSource.time == 0) 
+            if (audioSource.clip != null && audioSource.time == 0)
             {
                  PlayNextSong();
             }
@@ -109,7 +109,7 @@ public class MusicManager : MonoBehaviour
         audioSource.clip = songs[index];
         audioSource.Play();
     }
-    
+
     public void SetVolume(float vol)
     {
         volume = Mathf.Clamp01(vol);

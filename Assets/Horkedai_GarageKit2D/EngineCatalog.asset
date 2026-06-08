@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b3fd8bf708050f689d155175ad02c74, type: 3}
+  m_Name: EngineCatalog
+  m_EditorClassIdentifier: Assembly-CSharp::EngineCatalogSO
+  engines:
+  - {fileID: 11400000, guid: 6905b28f57cb95ac3a4be1cbea4e7410, type: 2}
+  - {fileID: 11400000, guid: 357de1afe7a40aa76a85ac52d17ac5d6, type: 2}
+  - {fileID: 11400000, guid: 77b3d73f6142fb15c94ffc2064a2a26c, type: 2}
+  - {fileID: 11400000, guid: c95a3d0587023ec80b5d6cb4964a7696, type: 2}
+  - {fileID: 11400000, guid: d920867778e1fb0cea6f40b3b8044f32, type: 2}
+  - {fileID: 11400000, guid: bcfd8d593cb7a5d53a78822a21e9a7bd, type: 2}
+  - {fileID: 11400000, guid: 0a59f1df188bcf3a7b89b706cd717225, type: 2}
+  - {fileID: 11400000, guid: ac4f00b9fd985a2e0b1c17a2c00d402e, type: 2}

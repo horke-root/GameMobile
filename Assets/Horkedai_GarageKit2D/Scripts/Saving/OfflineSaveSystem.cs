@@ -10,7 +10,7 @@ public class OfflineSaveSystem : ISaveRepository
         this.filePath = System.IO.Path.Combine(Application.persistentDataPath, fileName);
     }
 
-    //New implementation using file system
+
     public void Save<T>(T data)
     {
         string json = JsonUtility.ToJson(data, true);
@@ -21,7 +21,7 @@ public class OfflineSaveSystem : ISaveRepository
     public T Load<T>() where T : new()
     {
         if (!File.Exists(filePath))
-                return new T(); // return default data if no save file exists
+                return new T();
         string json = File.ReadAllText(filePath);
         return JsonUtility.FromJson<T>(json);
     }
@@ -35,22 +35,7 @@ public class OfflineSaveSystem : ISaveRepository
     }
 
 
-    //Old implementation using PlayerPrefs
-    
-    /*public void Save<PlayerData>(string key, PlayerData data)
-    {
-        string json = JsonUtility.ToJson(data);
-        PlayerPrefs.SetString(key, json);
-        PlayerPrefs.Save();
-    }
 
-    public PlayerData Load<PlayerData>(string key)
-    {
-        if (PlayerPrefs.HasKey(key))
-        {
-            string json = PlayerPrefs.GetString(key);
-            return JsonUtility.FromJson<PlayerData>(json);
-        }
-        return default(PlayerData);
-    }*/
+
+
 }

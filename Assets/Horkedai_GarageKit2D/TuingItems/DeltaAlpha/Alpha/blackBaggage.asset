@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5989b83374f6e54e8591cd7c79a2a5d, type: 3}
+  m_Name: blackBaggage
+  m_EditorClassIdentifier: Assembly-CSharp::Horkedai.GarageKit2D.TuningItemSO
+  itemId: baggageBlackAlpha
+  displayName: Black Baggage Frame
+  description: 
+  cost: 350
+  mass: 2
+  paintable: 0
+  color: {r: 1, g: 1, b: 1, a: 1}
+  powerStatsLeveling:
+  - level: 1
+    power: 0
+  specs:
+    stuntPoints: 0
+    racePoints: 0
+  statsSlot: 
+  slotId: baggage
+  icon: {fileID: -6759310388092864793, guid: d2f94cf1fb80306498bfc9dd2ab50377, type: 3}
+  itemSprite: {fileID: -6759310388092864793, guid: d2f94cf1fb80306498bfc9dd2ab50377, type: 3}
+  bikeGroup:
+  - Alpha
+  engine: {fileID: 0}

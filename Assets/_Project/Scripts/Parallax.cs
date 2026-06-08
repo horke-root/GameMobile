@@ -1,13 +1,20 @@
 using UnityEngine;
 
+
+
+
+
+
 public class Parallax : MonoBehaviour
+
 {
     public float parrallax;
+    public float timeCoof = 15f;
     public Camera cam;
-    public bool enableVerticalParallax = false; // Toggle for Y-axis movement
+    public bool enableVerticalParallax = false;
     private float startPos;
     private float startPosY;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
         if (cam == null)
@@ -18,18 +25,19 @@ public class Parallax : MonoBehaviour
         startPosY = transform.position.y;
     }
 
-    // Update is called once per frame
-    void FixedUpdate() //Android: LateUnpdate
+
+    void Update()
     {
         float distX = (cam.transform.position.x * (1 - parrallax));
         float newY = transform.position.y;
-        
+
         if (enableVerticalParallax)
         {
             float distY = (cam.transform.position.y * (1 - parrallax));
             newY = startPosY + distY;
         }
+        Vector3 newPosition = new Vector3(startPos + distX, newY, transform.position.z);
 
-        transform.position = new Vector3(startPos + distX, newY, transform.position.z);
+        transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime * timeCoof);
     }
 }
