@@ -67,5 +67,8 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "GameMobile.slnx"
+    "dotnet.defaultSolution": "GameMobile.slnx",
+    "dotrush.roslyn.projectOrSolutionFiles": [
+        "/run/media/horkedai/69FB-F77C/newGameMobile/GameMobile/GameMobile.slnx"
+    ]
 }
