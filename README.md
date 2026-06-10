@@ -6,6 +6,8 @@
 
 ---
 
+Завантижити гру: https://github.com/horke-root/GameMobile/releases/tag/Demo
+
 ## 🎮 Основні Ігрові Механіки
 
 1. **Фізична модель руху (2D Physics)**
