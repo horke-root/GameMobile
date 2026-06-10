@@ -515,7 +515,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &175632129
 RectTransform:
   m_ObjectHideFlags: 0
@@ -82773,7 +82773,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0420\u0430\u0437\u0431\u0438\u043B\u0441\u044F!"
+  m_text: "\u0420\u043E\u0437\u0431\u0438\u0432\u0441\u044F!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cfaab796c3ce30bd18e1e86813225c1a, type: 2}
   m_sharedMaterial: {fileID: -5462965531077488886, guid: cfaab796c3ce30bd18e1e86813225c1a, type: 2}
@@ -162937,7 +162937,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041E\u0441\u043D\u043E\u0432\u043D\u043E\u0439 \u0434\u043E\u0445\u043E\u0434"
+  m_text: "\u0414\u043E\u0445\u0456\u0434 \u0437\u0430 \u0447\u0435\u043A\u043F\u043E\u0457\u043D\u0442\u0438"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 15a6a40b439c6ae41b8744e145446d2b, type: 2}
   m_sharedMaterial: {fileID: 5045767923996218430, guid: 15a6a40b439c6ae41b8744e145446d2b, type: 2}
@@ -253326,15 +253326,14 @@ MonoBehaviour:
   RewardsPanel: {fileID: 1212285594}
   totalReward: {fileID: 558622781}
   startReward: {fileID: 1773100473}
-  bikeReward: {fileID: 175632131}
   PanelTitle: {fileID: 1140687801}
   audioSource: {fileID: 1697601330}
   tickSound: {fileID: 8300000, guid: 48c7b03a48d4fdf9e9419611c05c08e3, type: 3}
   Restart: {fileID: 1490967017}
   ExitToMenu: {fileID: 1959764600}
   animDuration: 0.8
-  wintext: "\u041E\u0442\u043B\u0438\u0447\u043D\u044B\u0435 \u0442\u0440\u044E\u043A\u0438!"
-  losetext: "\u0420\u0430\u0437\u0431\u0438\u043B\u0441\u044F!"
+  wintext: Win!
+  losetext: Lose!
 --- !u!4 &1697601329
 Transform:
   m_ObjectHideFlags: 0

@@ -75,3 +75,4 @@ crashlytics-build.properties
 /unpacked_doc/
 *.docx
 *.txt
+/[Ff]lowcharts/

@@ -303,8 +303,13 @@ public class RaceService : MonoBehaviour
         }
     }
 
+    private bool isToGarageTriggered = false;
+
     public void ToGarageTrigger()
     {
+        if (isToGarageTriggered) return;
+        isToGarageTriggered = true;
+
         int earned = 0;
         if (enduroLevel == null)
         {
@@ -318,7 +323,7 @@ public class RaceService : MonoBehaviour
             earned = accumulatedEnduroMoney;
             if (ermUI != null)
             {
-                ermUI.wintext = "Чекпоинты пройдены!";
+                ermUI.wintext = "Кінець!";
             }
         }
 

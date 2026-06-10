@@ -3,20 +3,20 @@ using UnityEngine;
 
 public class BikeController : MonoBehaviour
 {
-    [Header("Данные Двигателя")]
+    [Header("Дані Двигателя")]
     public AnimationCurve activeEngineCurve;
     public float maxRPM = 8500f;
     public float maxHP = 4.5f;
     public float idleRPM = 1500f;
     public float engineBrakingFactor = 2.0f;
 
-    [Header("Сцепление и Статус")]
+    [Header("Счеплення та статус")]
     public bool isEngineRunning = true;
     public bool isEngineBroken = false;
     public float stallRPM = 1000f;
     [Range(0f, 1f)] public float clutchLock = 0f;
 
-    [Header("Трансмиссия (АКПП)")]
+    [Header("Коробка передач (АКПП)")]
     public float primaryDriveRatio = 3.72f;
     public int frontSprocket = 14;
     public int rearSprocket = 41;
@@ -34,7 +34,7 @@ public class BikeController : MonoBehaviour
 
     public bool manualTransmission = false;
 
-    [Header("Стант: Физика и Колеса")]
+    [Header("Фізика, колеса")]
     public Rigidbody2D frameRb;
     public Rigidbody2D rearWheelRb;
     public Rigidbody2D frontWheelRb;
@@ -43,11 +43,11 @@ public class BikeController : MonoBehaviour
     public float wheelRadius = 0.28f;
     public float arcadeTorqueMultiplier = 1.5f;
 
-    [Header("Аэродинамика")]
+    [Header("Аєродинаміка")]
     public float airResistance = 0.5f;
     public float rollingResistance = 0.1f;
 
-    [Header("Стант: Ассистент Вилли")]
+    [Header("Стант: Налаштування асистенту станта")]
     public bool enableWheelieAssist = true;
     public bool enableEasyStuntMode = false;
     public bool enableAutoThrottleFeathering = true;
@@ -57,7 +57,7 @@ public class BikeController : MonoBehaviour
     public float balanceAngle = 45f;
     public float criticalAngle = 65f;
 
-    [Header("Управление (Ввод)")]
+    [Header("Керування")]
     public MobileButton gasButton;
     public MobileButton rearBrakeButton;
     public MobileButton frontBrakeButton;
@@ -71,11 +71,11 @@ public class BikeController : MonoBehaviour
     public float stuntThrottleSpeed = 15f;
     public float mechanicalBrakePower = 30f;
 
-    [Header("Состояние деталей (Износ)")]
+    [Header("Деталі (настройки здоров'я)")]
     [Range(0f, 1f)] public float engineCondition = 1f;
     [Range(0f, 1f)] public float wheelsCondition = 1f;
 
-    [Header("Температура двигателя (Enduro)")]
+    [Header("Температура двигуна")]
     public float engineTemperature = 20f;
     public float maxEngineTemperature = 120f;
     public float baseHeatRate = 10f;
@@ -87,7 +87,7 @@ public class BikeController : MonoBehaviour
 
     public System.Action onOverheat;
 
-    [Header("Дебаг")]
+    [Header("Dubug Info")]
     public float currentEngineRPM;
     public float currentSpeedKmh;
     public float currentPitchAngle;
@@ -221,7 +221,8 @@ public class BikeController : MonoBehaviour
         }
         if (shiftTimer > 0) shiftTimer -= Time.fixedDeltaTime;
         if (currentCooldown > 0) currentCooldown -= Time.fixedDeltaTime;
-
+        
+        //виклик всіх ф-цій фізики
         CalculateSpeedAndRPM();
         HandleAutomaticTransmission();
         ApplyEnginePhysics();
@@ -230,7 +231,7 @@ public class BikeController : MonoBehaviour
         UpdateEngineTemperature();
     }
 
-    private void ApplyAerodynamics()
+    private void ApplyAerodynamics() //аєродинаміка
     {
         float speed = frameRb.linearVelocity.magnitude;
 
@@ -244,7 +245,7 @@ public class BikeController : MonoBehaviour
         frameRb.AddForce(dragForce);
     }
 
-    private void UpdateEngineTemperature()
+    private void UpdateEngineTemperature() //температура двигуна
     {
         if (!enableTemperature) return;
 
@@ -276,10 +277,10 @@ public class BikeController : MonoBehaviour
         }
     }
 
-    private void HandleInputs()
+    private void HandleInputs() //Обработчик керування мопедом
     {
-        bool isGasPressed = InputGas;
-        bool isStuntPressed = InputStunt;
+        bool isGasPressed = InputGas; //клавіша газу
+        bool isStuntPressed = InputStunt; //клавіша станту
 
         float currentAngle = 0f;
         if (frameRb != null)
@@ -291,7 +292,7 @@ public class BikeController : MonoBehaviour
         bool isInStuntMode = currentAngle > 10f || isStuntPressed;
         float activeThrottleSpeed = isInStuntMode ? stuntThrottleSpeed : throttleSpeed;
 
-        if (isInStuntMode && enableAdaptiveThrottleSpeed)
+        if (isInStuntMode && enableAdaptiveThrottleSpeed) //адаптивний режим допоги для станта на основі від загальної сили двигуна
         {
             float powerFactor = Mathf.Clamp(maxHP, 2f, 15f);
             float speedScale = Mathf.InverseLerp(15f, 2f, powerFactor);
@@ -300,7 +301,7 @@ public class BikeController : MonoBehaviour
 
         float targetThrottle = (isGasPressed || isStuntPressed) ? 1f : 0f;
 
-        if (enableAutoThrottleFeathering && isInStuntMode && enableWheelieAssist && targetThrottle > 0f)
+        if (enableAutoThrottleFeathering && isInStuntMode && enableWheelieAssist && targetThrottle > 0f) // підкеровка сили підняття мотоцикла від потрібного угла станта
         {
             float featherStartAngle = balanceAngle - 10f;
             if (currentAngle > featherStartAngle)
@@ -311,7 +312,7 @@ public class BikeController : MonoBehaviour
             }
         }
 
-        throttleInput = Mathf.MoveTowards(throttleInput, targetThrottle, Time.deltaTime * activeThrottleSpeed);
+        throttleInput = Mathf.MoveTowards(throttleInput, targetThrottle, Time.deltaTime * activeThrottleSpeed); //математичне згадженння фізики дл япередання нажаття клавіші
 
         if (InputRearBrake)
         {
@@ -321,25 +322,25 @@ public class BikeController : MonoBehaviour
 
     private void ApplyMechanicalBrakes()
     {
-        if (InputRearBrake)
+        if (InputRearBrake) //задній тормоз
             rearWheelRb.AddTorque(-Mathf.Sign(rearWheelRb.angularVelocity) * mechanicalBrakePower);
 
-        if (InputFrontBrake)
+        if (InputFrontBrake) // передній, не використувується
             frontWheelRb.AddTorque(-Mathf.Sign(frontWheelRb.angularVelocity) * mechanicalBrakePower * 1.5f);
     }
 
-    private void CalculateSpeedAndRPM()
+    private void CalculateSpeedAndRPM() //отримаення данних скорості з рами та обрахунок оборотів двигуна
     {
-        currentSpeedKmh = frameRb.linearVelocity.magnitude * 3.6f;
+        currentSpeedKmh = frameRb.linearVelocity.magnitude * 3.6f; //перевод скорості в км
 
-        float wheelRevsPerSecond = Mathf.Abs(rearWheelRb.angularVelocity) / 360f;
-        float wheelRPM = wheelRevsPerSecond * 60f;
+        float wheelRevsPerSecond = Mathf.Abs(rearWheelRb.angularVelocity) / 360f; //обороти колеса
+        float wheelRPM = wheelRevsPerSecond * 60f; 
 
         if (!isEngineRunning)
         {
-            currentEngineRPM = Mathf.MoveTowards(currentEngineRPM, 0f, 4000f * Time.fixedDeltaTime);
+            currentEngineRPM = Mathf.MoveTowards(currentEngineRPM, 0f, 4000f * Time.fixedDeltaTime); // згалдженне додавання оборотів двигуна 
 
-            if (currentSpeedKmh < 1f && throttleInput < 0.1f && !isEngineBroken)
+            if (currentSpeedKmh < 1f && throttleInput < 0.1f && !isEngineBroken) // заводження мотоциклу
             {
                 isEngineRunning = true;
                 currentEngineRPM = idleRPM;
@@ -348,26 +349,26 @@ public class BikeController : MonoBehaviour
             return;
         }
 
-        float mechanicalRPM = wheelRPM * CurrentTotalRatio;
-        float targetGasRPM = idleRPM + (throttleInput * (maxRPM - idleRPM));
+        float mechanicalRPM = wheelRPM * CurrentTotalRatio; // отрмаенмання пправильного обороту 
+        float targetGasRPM = idleRPM + (throttleInput * (maxRPM - idleRPM)); // цільвові обороти дваигуна
 
         if (shiftTimer > 0 || currentGear == 0)
         {
-            clutchLock = 0f;
+            clutchLock = 0f; // блокування зчеплення
         }
         else
         {
-            clutchLock = Mathf.InverseLerp(2500f, 4000f, currentEngineRPM);
+            clutchLock = Mathf.InverseLerp(2500f, 4000f, currentEngineRPM); // розрахунок плавного зчеплення для старту мотику
             if (mechanicalRPM > 4000f) clutchLock = 1f;
         }
 
         float targetRPM = Mathf.Lerp(targetGasRPM, mechanicalRPM, clutchLock);
-        float inertia = (targetRPM > currentEngineRPM) ? 8000f : 12000f;
-        currentEngineRPM = Mathf.MoveTowards(currentEngineRPM, targetRPM, inertia * Time.fixedDeltaTime);
+        float inertia = (targetRPM > currentEngineRPM) ? 8000f : 12000f; //розрахунок інерції набору оборотів двигуна
+        currentEngineRPM = Mathf.MoveTowards(currentEngineRPM, targetRPM, inertia * Time.fixedDeltaTime); // обновлення(плавне збільшення) глобальної перемнної оборотів двигуна
 
-        float actualStallRPM = engineCondition < 0.2f ? stallRPM * 1.5f : stallRPM;
+        float actualStallRPM = engineCondition < 0.2f ? stallRPM * 1.5f : stallRPM; //зменшення стабільної РПМ при поломаному двигуні, для зашлохнення і трішки довшого старту
 
-        if (clutchLock > 0.8f && currentEngineRPM < actualStallRPM && throttleInput > 0f)
+        if (clutchLock > 0.8f && currentEngineRPM < actualStallRPM && throttleInput > 0f) //логіка глохнення двигуна, покищо працює корявво
         {
             isEngineRunning = false;
         }
@@ -375,16 +376,16 @@ public class BikeController : MonoBehaviour
         currentEngineRPM = Mathf.Clamp(currentEngineRPM, 0f, maxRPM);
     }
 
-    private void HandleAutomaticTransmission()
+    private void HandleAutomaticTransmission() //АКПП
     {
-        if (manualTransmission) return;
-        if (!isEngineRunning || shiftTimer > 0) return;
+        if (manualTransmission) return; 
+        if (!isEngineRunning || shiftTimer > 0) return; //якщо ще не пройшов кулдаун переключання передачі
 
         bool isStuntButtonPressed = InputStunt;
 
         if (currentGear == 0)
         {
-            if (throttleInput > 0.1f || isStuntButtonPressed)
+            if (throttleInput > 0.1f || isStuntButtonPressed) //авто ввімкненя першої при старті
             {
                 currentGear = 1;
                 shiftTimer = shiftDelay;
@@ -399,20 +400,19 @@ public class BikeController : MonoBehaviour
             if (currentAngle > 180f) currentAngle -= 360f;
         }
 
-        bool isPhysicallyStunting = currentAngle > 10f || isStuntButtonPressed;
-
-        if (isPhysicallyStunting) return;
+        bool isPhysicallyStunting = currentAngle > 10f || isStuntButtonPressed; 
+        if (isPhysicallyStunting) return; //якщо мотик стантить не переключаєм
 
         if (currentCooldown > 0) return;
 
-        if (currentEngineRPM > shiftUpRPM && currentGear < gearRatios.Length - 1 && clutchLock > 0.8f)
+        if (currentEngineRPM > shiftUpRPM && currentGear < gearRatios.Length - 1 && clutchLock > 0.8f) //переключання скорості вверх
         {
             currentGear++;
             shiftTimer = shiftDelay;
             currentCooldown = shiftCooldown;
             currentEngineRPM -= 1500f;
         }
-        else if (currentEngineRPM < shiftDownRPM && currentGear > 1)
+        else if (currentEngineRPM < shiftDownRPM && currentGear > 1) // зниження скорості
         {
             currentGear--;
             shiftTimer = shiftDelay;
@@ -420,7 +420,7 @@ public class BikeController : MonoBehaviour
         }
     }
 
-    public void ShiftUp()
+    public void ShiftUp() //кнопки 
     {
         if (!isEngineRunning || currentGear >= gearRatios.Length - 1) return;
 
@@ -430,7 +430,7 @@ public class BikeController : MonoBehaviour
         currentEngineRPM = Mathf.Max(idleRPM, currentEngineRPM - 1500f);
     }
 
-    public void ShiftDown()
+    public void ShiftDown() //кнопки
     {
         if (!isEngineRunning || currentGear <= 0) return;
 
@@ -443,44 +443,44 @@ public class BikeController : MonoBehaviour
         }
     }
 
-    private void ApplyEnginePhysics()
+    private void ApplyEnginePhysics() //фізика мотоциклу
     {
         if (!isEngineRunning || shiftTimer > 0 || currentGear == 0) return;
 
         float wheelRevsPerSecond = Mathf.Abs(rearWheelRb.angularVelocity) / 360f;
         float wheelRPM = wheelRevsPerSecond * 60f;
-        float mechanicalRPM = wheelRPM * CurrentTotalRatio;
+        float mechanicalRPM = wheelRPM * CurrentTotalRatio; 
 
-        float normalizedRPM = currentEngineRPM / maxRPM;
+        float normalizedRPM = currentEngineRPM / maxRPM; //отрмання відношення огборотів до максимальних типу 
         float powerPercentage = activeEngineCurve.Evaluate(normalizedRPM);
-        float currentHP = powerPercentage * maxHP * Mathf.Max(engineCondition, 0.01f);
+        float currentHP = powerPercentage * maxHP * Mathf.Max(engineCondition, 0.01f); //отрмання сили мопеду при певних оборотах
 
-        float engineTorque = (currentHP * 7120f) / Mathf.Max(currentEngineRPM, 1f);
-        float torqueAtWheel = engineTorque * CurrentTotalRatio * clutchLock * arcadeTorqueMultiplier * wheelsCondition;
+        float engineTorque = (currentHP * 7120f) / Mathf.Max(currentEngineRPM, 1f); //отрмання сили натиску в НМ по формулі переводу л.с в НМ
+        float torqueAtWheel = engineTorque * CurrentTotalRatio * clutchLock * arcadeTorqueMultiplier * wheelsCondition; // отрмання остаточної сили 
 
-        if (mechanicalRPM >= maxRPM)
+        if (mechanicalRPM >= maxRPM) //блокування сили при перевищенні оборотів
         {
             torqueAtWheel = 0f;
         }
 
-        if (throttleInput > 0.05f)
+        if (throttleInput > 0.05f) //нажаття клавіші
         {
-            float finalTorque = torqueAtWheel * throttleInput;
+            float finalTorque = torqueAtWheel * throttleInput; //сила мотору * силу нажаття
 
             float currentAngle = frameRb.transform.eulerAngles.z;
             if (currentAngle > 180f) currentAngle -= 360f;
 
             float gearMultiplier = 1f;
-            if (enableGearBasedStuntScaling && currentGear > 1 && currentGear < gearRatios.Length)
+            if (enableGearBasedStuntScaling && currentGear > 1 && currentGear < gearRatios.Length) // стант асистент оснований на передачах, виключений
             {
                 gearMultiplier = Mathf.Sqrt(gearRatios[currentGear] / gearRatios[1]);
             }
 
-            float actualStuntTorque = stuntPullTorque * gearMultiplier;
+            float actualStuntTorque = stuntPullTorque * gearMultiplier; //сила підняття на основі передачі віткнутой
 
             if (InputStunt && frameRb != null)
             {
-                if (enableEasyStuntMode)
+                if (enableEasyStuntMode) // найпростіший асистнт станту оснований на простому обмещенню переворота
                 {
                     float t = Mathf.InverseLerp(5f, balanceAngle, currentAngle);
                     float currentStuntPull = Mathf.Lerp(actualStuntTorque, actualStuntTorque * 0.05f, t);
@@ -496,7 +496,7 @@ public class BikeController : MonoBehaviour
                 {
                     float currentStuntPull = actualStuntTorque;
 
-                    if (enableSmoothStuntPull)
+                    if (enableSmoothStuntPull) // плавінщий ассистент станту оснований на плавному підняття мотоцикла вверх
                     {
                         float smoothStart = balanceAngle - 15f;
                         if (currentAngle > smoothStart && currentAngle < balanceAngle)
@@ -506,15 +506,15 @@ public class BikeController : MonoBehaviour
                         }
                     }
 
-                    if (currentAngle < balanceAngle) frameRb.AddTorque(currentStuntPull);
+                    if (currentAngle < balanceAngle) frameRb.AddTorque(currentStuntPull); //сама ф-ція застосування сили до станту
                 }
                 else
                 {
-                    frameRb.AddTorque(actualStuntTorque);
+                    frameRb.AddTorque(actualStuntTorque); //ф-ція застосування сили до станту
                 }
             }
 
-            if (!enableEasyStuntMode && enableWheelieAssist && frameRb != null && currentAngle > balanceAngle)
+            if (!enableEasyStuntMode && enableWheelieAssist && frameRb != null && currentAngle > balanceAngle) //стант за допомогою асистенитів 
             {
                 float reductionFactor = 1f - Mathf.InverseLerp(balanceAngle, criticalAngle, currentAngle);
                 finalTorque *= reductionFactor;
@@ -527,7 +527,7 @@ public class BikeController : MonoBehaviour
                 rearWheelRb.AddTorque(-finalTorque);
             }
         }
-        else if (clutchLock > 0.5f)
+        else if (clutchLock > 0.5f) //пасивне відторможення (на основі тріння землі об колеса) типу накат.
         {
             float brakingForce = engineBrakingFactor * CurrentTotalRatio;
             rearWheelRb.AddTorque(-Mathf.Sign(rearWheelRb.angularVelocity) * brakingForce);

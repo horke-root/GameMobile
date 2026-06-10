@@ -10,7 +10,7 @@ public class EndRaceManagerUI : MonoBehaviour
     public GameObject RewardsPanel;
     public TextMeshProUGUI totalReward;
     public TextMeshProUGUI startReward;
-    public TextMeshProUGUI bikeReward;
+    //public TextMeshProUGUI bikeReward;
     public TextMeshProUGUI PanelTitle;
     public AudioSource audioSource;
     public AudioClip tickSound;
@@ -18,8 +18,8 @@ public class EndRaceManagerUI : MonoBehaviour
     public Button ExitToMenu;
     [Header("Settings")]
     public float animDuration = 0.8f;
-    public string wintext = "Отличные трюки!";
-    public string losetext = "Разбился!";
+    public string wintext = "You Win!";
+    public string losetext = "Lose!";
 
     private int currentTotal = 0;
 
@@ -34,7 +34,7 @@ public class EndRaceManagerUI : MonoBehaviour
         endraceA = EndRacePanel.GetComponent<UISwipeAnimate>();
         totalReward.enabled = false;
         startReward.gameObject.SetActive(false);
-        bikeReward.gameObject.SetActive(false);
+        //bikeReward.gameObject.SetActive(false);
         Restart.onClick.AddListener(RestartRace);
 
         totalReward.text = "0";
@@ -96,16 +96,16 @@ public class EndRaceManagerUI : MonoBehaviour
         winSequence.AppendInterval(0.3f);
 
 
-        winSequence.AppendCallback(() => {
+        /*winSequence.AppendCallback(() => {
             bikeReward.gameObject.SetActive(true);
             bikeReward.text = $"+{extraAmount-startAmount}";
             bikeReward.transform.localScale = Vector3.zero;
 
-        });
+        });*/
 
-
+        /*
         winSequence.Append(bikeReward.transform.DOScale(1.2f, 0.3f).SetEase(Ease.OutBack));
-
+        */
 
         int finalTotal = currentTotal + extraAmount;
         winSequence.Join(DOTween.To(() => currentTotal, x => {
